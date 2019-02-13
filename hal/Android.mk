@@ -455,6 +455,10 @@ LOCAL_SRC_FILES += audio_perf.cpp
 LOCAL_CFLAGS += -DPERF_HINTS_ENABLED
 endif
 
+ifeq ($(strip $(AUDIO_DISABLE_SWAP_CHANNELS)), true)
+    LOCAL_CFLAGS += -DDISABLE_SWAP_CHANNELS
+endif
+
 LOCAL_HEADER_LIBRARIES += libhardware_headers
 
 LOCAL_MODULE := audio.primary.$(TARGET_BOARD_PLATFORM)
